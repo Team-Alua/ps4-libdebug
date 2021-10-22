@@ -9,7 +9,7 @@ class PS4Process {
 
     public:
         PS4Process(int32_t pid);
-		~PS4Process();
+        ~PS4Process();
 		
         void GetMemoryMaps();
         

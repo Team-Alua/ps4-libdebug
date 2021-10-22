@@ -13,7 +13,7 @@ class PS4DBG {
         struct sockaddr_in m_Server;
     public:
         PS4DBG(const std::string &ip);
-		~PS4DBG();
+        ~PS4DBG();
         void Connect();
         void Disconnect();
         
