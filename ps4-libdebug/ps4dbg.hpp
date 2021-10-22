@@ -14,8 +14,8 @@ class PS4DBG {
     public:
         PS4DBG(const std::string &ip);
 		~PS4DBG();
-		void Connect();
-		void Disconnect();
+        void Connect();
+        void Disconnect();
         
-		std::vector<PS4Process> GetProcessList();
+        std::vector<PS4Process> GetProcessList();
 };
