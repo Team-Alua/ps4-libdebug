@@ -8,15 +8,17 @@
 
 
 namespace PS4 {
-    class Process {
+    class ProcessApi {
         private:
             int m_SockFileDescriptor;
             uint32_t m_Pid;
             uint64_t m_RPCStub;
 
         public:
-            Process(int p_SockFileDescriptor, uint32_t p_Pid);
-            ~Process();
+            
+            ProcessApi(int p_SockFileDescriptor, uint32_t p_Pid);
+           
+            ~ProcessApi();
             
             std::vector<PS4::MemoryEntry> GetMemoryMaps();
             

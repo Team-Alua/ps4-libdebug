@@ -4,7 +4,7 @@
 
 #include <sys/socket.h>
 #include <netinet/in.h>
-#include "process.hpp"
+#include "processapi.hpp"
 
 #pragma once
 
@@ -38,8 +38,8 @@ namespace PS4 {
             /**
              * @brief Get the List of Processes running on the PS4.
              * 
-             * @return std::vector<PS4::Process> 
+             * @return std::vector<PS4::ProcessApi> 
              */
-            std::vector<PS4::Process> GetProcessList();
+            std::vector<PS4::ProcessApi> GetProcessList();
     };
 }
