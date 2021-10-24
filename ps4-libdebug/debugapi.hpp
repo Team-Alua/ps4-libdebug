@@ -1,6 +1,7 @@
 #include <stdint.h>
 #include <vector>
 #include <string>
+#include <memory>
 
 #include <sys/socket.h>
 #include <netinet/in.h>
@@ -38,8 +39,9 @@ namespace PS4 {
             /**
              * @brief Get the List of Processes running on the PS4.
              * 
-             * @return std::vector<PS4::ProcessApi> 
+             * @return std::vector<std::shared_ptr<PS4::ProcessApi>> 
              */
-            std::vector<PS4::ProcessApi> GetProcessList();
+            
+            std::vector<std::shared_ptr<PS4::ProcessApi>> GetProcessList();
     };
 }

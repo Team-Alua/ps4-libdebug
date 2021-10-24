@@ -1,6 +1,7 @@
 #include <stdint.h>
 #include <vector>
 #include <string>
+#include <memory>
 
 #include "memoryentry.hpp"
 
@@ -20,7 +21,7 @@ namespace PS4 {
            
             ~ProcessApi();
             
-            std::vector<PS4::MemoryEntry> GetMemoryMaps();
+            std::vector<std::shared_ptr<PS4::MemoryEntry>> GetMemoryMaps();
             
             uint64_t InstallRPC();
 
