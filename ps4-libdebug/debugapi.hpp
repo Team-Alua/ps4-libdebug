@@ -1,20 +1,25 @@
-#include <stdint.h>
 #include <vector>
 #include <string>
 #include <memory>
 
+#include <stdint.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
+
 #include "processapi.hpp"
+#include "utils.hpp"
 
 #pragma once
 
-namespace PS4 {
+const in_port_t PS4DEBUG_PORT = 744;
+
+namespace PS4Debug {
+
+    typedef std::vector<std::shared_ptr<PS4Debug::ProcessApi>> ProcessList;
     class DebugApi {
         private:
-            struct sockaddr_in m_Server;
+            std::shared_ptr<SocketHelper> m_SharedSocketHelper;
         public:
-
             /**
              * @brief Sets up the client to connect to ps4debug. Assumes the target port is 744.
              * 
@@ -27,21 +32,22 @@ namespace PS4 {
             /**
              * @brief Establish a connection to ps4debug socket server.
              * 
+             * @returns  false if failed, true otherwise.
              */
-            void Connect();
+            int Connect();
 
             /**
              * @brief Disconnects from the ps4debug socket server.
              * 
+             * @returns false if it failed, true otherwise.
              */
-            void Disconnect();
+            int Disconnect();
             
             /**
              * @brief Get the List of Processes running on the PS4.
              * 
              * @return std::vector<std::shared_ptr<PS4::ProcessApi>> 
              */
-            
-            std::vector<std::shared_ptr<PS4::ProcessApi>> GetProcessList();
+            ProcessList GetProcessList();
     };
 }

@@ -8,7 +8,7 @@
 #pragma once
 
 
-namespace PS4 {
+namespace PS4Debug {
     class ProcessApi {
         private:
             int m_SockFileDescriptor;
@@ -21,7 +21,7 @@ namespace PS4 {
            
             ~ProcessApi();
             
-            std::vector<std::shared_ptr<PS4::MemoryEntry>> GetMemoryMaps();
+            std::vector<std::shared_ptr<PS4Debug::MemoryEntry>> GetMemoryMaps();
             
             uint64_t InstallRPC();
 
